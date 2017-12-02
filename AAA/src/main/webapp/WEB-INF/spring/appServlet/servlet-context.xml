@@ -96,12 +96,6 @@
 			<beans:ref bean="testInterceptor" />
 		</interceptor>
 
-
-		<interceptor>
-			<mapping path="/user/login" />
-			<beans:ref bean="loginTestInteceptor" />
-		</interceptor>
-
 	</interceptors>
 	<context:component-scan base-package="all.about.apartment" />
 
