@@ -98,7 +98,6 @@
 
 	<context:component-scan base-package="all.about.apartment" />
 
-
 	<interceptors>
 		<interceptor>
 			<mapping path="/facility/getSpot/{fr_id}" />
