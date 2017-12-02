@@ -10,6 +10,7 @@ Author URI: http://www.os-templates.com/
 Licence: Free to use under our free template licence terms
 Licence URI: http://www.os-templates.com/template-terms
 -->
+
 <style>
 	li {
 		font-size: 18px;
@@ -19,6 +20,7 @@ Licence URI: http://www.os-templates.com/template-terms
 	ResidentVO vo = (ResidentVO)session.getAttribute("login");
 	
 %>
+
 <html>
 <head>
 <title>Viral | Pages | Full Width</title>
@@ -147,67 +149,16 @@ $(function () {
     <!-- ################################################################################################ -->
   </header>
 </div>
-	<div class="wrapper row0">
-		<div id="topbar" class="clear">
-			<!-- ################################################################################################ -->
-			<div class="fl_left">
-				<ul class="nospace inline">
-					<li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
-					<li><i class="fa fa-envelope-o"></i> info@domain.com</li>
-				</ul>
-			</div>
-			<div class="fl_right">
-				<ul class="faico clear">
-					<li><a href="#" id="login"></a></li>
-					<li><a href="#">마이페이지</a></li>
-					<li><a href="#" id="msg" data-toggle="modal"
-						data-target=".messageListmodal"></a></li>
-				</ul>
-			</div>
-			<!-- ################################################################################################ -->
-		</div>
-	</div>
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<div class="wrapper row1">
-		<header id="header" class="clear">
-			<!-- ################################################################################################ -->
-			<div id="logo" class="fl_left">
-				<h1>
-					<a href="/"><img src="/resources/images/main/main_log_mini.png"
-						alt="" class="main_log_img"></a>
-				</h1>
-			</div>
-			<nav id="mainav" class="fl_right">
-				<ul class="clear">
-					<li><a href="resourcesindex.html">Home</a></li>
+
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
 
 
-	<div class="wrapper row0">
-		<div id="topbar" class="clear">
-			<!-- ################################################################################################ -->
-			<div class="fl_left">
-				<ul class="nospace inline">
-					<li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
-					<li><i class="fa fa-envelope-o"></i> info@domain.com</li>
-				</ul>
-			</div>
-			<div class="fl_right">
-				<ul class="faico clear">
-					<li><a href="#" id="login"></a></li>
-					<li><a href="#">마이페이지</a></li>
-					<li><a href="#" id="msg" data-toggle="modal"
-						data-target=".messageListmodal"></a></li>
-				</ul>
-			</div>
-			<!-- ################################################################################################ -->
-		</div>
-	</div>
 	<!-- ################################################################################################ -->
 	<!-- ################################################################################################ -->
 	<!-- ################################################################################################ -->
-	
+
 	<!-- ##################################################################################################### -->
 	<!-- Modal  -->
 	<div class="modal fade messageListmodal" tabindex="-1" role="dialog"

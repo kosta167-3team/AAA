@@ -4,9 +4,6 @@
      <%@page import="java.util.List"%>
      <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-     
-     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> 
-
  
 <!DOCTYPE html>
 <!--
@@ -26,13 +23,47 @@ Licence URI: http://www.os-templates.com/template-terms
   background-color: lightslategrey;
   margin: auto;
   
-  
- 
 }
 
-.error{
-      color: #ff0000;
-   }
+     #button{
+  background:#FF8000;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:20px;
+  font-size:1em;
+  padding:0 1em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+  display:inline;
+}
+#button:hover{
+  background:#fff;
+  color:#FF8000;
+}
+#button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  transition:400ms ease all;
+}
+#button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+#button:hover:before,button:hover:after{
+  width:40%;
+  transition:800ms ease all;
+}
+
+
 </style>
 
 
@@ -156,43 +187,42 @@ Licence URI: http://www.os-templates.com/template-terms
 
 	
       <div id="comments">
-
-        <h2>경매 등록</h2>
-        <form:form commandName="BidProductVO" action="bidRegister" method="post" enctype="multipart/form-data">
+      
+      <form role="form" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="bid_filename" value="${bidProductVO.bid_filename }">
+      
+        <h2>경매 수정</h2>
+      
 			 <div class="form-group">
 			 	<input type='file' name='file'>
 			</div> 
 
-         <%--  <div class="one_third first">
-            <label for="name">판매자 <span>*</span></label>
-            <form:input type="text" path="bid_seller" name="bid_seller" id="name" value="" size="22"/>
-          	<form:errors path="bid_seller" cssClass="error"/>
-          </div> --%>
+         
           <div class="one_third first">
-            <label for="email">상품이름 </label>
-            <form:input type="text" path="bid_name" name="bid_name" id="email" value="" size="22"/>
-            <form:errors path="bid_name" cssClass="error"/>
+            <label for="email">상품이름 <span>*</span></label>
+            <input type="text" name="bid_name" id="email" value="${bidProductVO.bid_name }" size="22">
           </div>
           <div class="one_third">
             <label for="url">입찰 시작가</label>
-            <input type="text" name="bid_start" id="url" value="" size="22"/>
-            
+            <input type="text" name="bid_start" id="url" value="${bidProductVO.bid_start }" size="22">
           </div>
-          <div class="one_third">
+           <div class="one_third">
             <label for="url">경매 시간</label>
-            <input type="text" name="bid_time" id="url" value="" size="22"/>
-            
+            <input type="text" name="bid_time" id="url" value="${bidProductVO.bid_time }" size="22">
           </div>
           
            
           <div class="block clear">
             <label for="comment">내용</label>
-            <form:textarea name="bid_content" path="bid_content" id="comment" cols="25" rows="10"/></textarea>
-            <form:errors path="bid_content" cssClass="error"/>
+            <textarea name="bid_content" id="comment" value="${bidProductVO.bid_content }" cols="25" rows="10"></textarea>
           </div> 
-         
-          <button type="submit" class="btn btn-primary">등록</button>
-        </form:form>
+          </form>
+          
+          <div class="button1">
+         <button type="submit" id="button"class="btn btn-primary">수정</button>
+       
+          <button type="submit" id="button" class="btn btn-warning">취소</button>
+       </div>
       </div>
       
        
@@ -274,7 +304,23 @@ Licence URI: http://www.os-templates.com/template-terms
 <script src="/resources/layout/scripts/jquery.backtotop.js"></script>
 <script src="/resources/layout/scripts/jquery.mobilemenu.js"></script>
 
- 
+<script>
+$(document).ready(function(){
+	var formObj = $("form[role='form']");
+	
+	console.log(formObj);
+	
+	$(".btn-warning").on("click",function(){
+		self.location="/bid/bidListAll";
+	});
+	
+	$(".btn-primary").on("click",function(){
+		formObj.submit();
+		
+	});
+
+});
+
 
 
 
