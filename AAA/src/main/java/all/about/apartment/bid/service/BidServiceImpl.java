@@ -11,19 +11,20 @@ import org.springframework.transaction.annotation.Transactional;
 import all.about.apartment.bid.domain.BidProductVO;
 import all.about.apartment.bid.domain.FileVO;
 import all.about.apartment.bid.persistence.BidDAO;
-import all.about.apartment.bid.persistence.BiddDAO;
 
 @Service
-public class BidServiceImpl implements BiddService {
+public class BidServiceImpl implements BidService {
 	
 	@Inject
-	private BiddDAO dao;
+	private BidDAO dao;
 
+	@Transactional
 	@Override
 
 	public BidProductVO bidDetail(String bid_id) throws Exception{
 		return dao.bidDetail(bid_id);
 }
+
 
 	public void regist(BidProductVO bid) throws Exception {
 		dao.create(bid);
@@ -40,7 +41,7 @@ public class BidServiceImpl implements BiddService {
 			fileVO.setContent_filename(fileName);
 			dao.addAttach(fileVO);
 		}*/
-		
+
 	}
 
 	@Override
@@ -64,9 +65,7 @@ public class BidServiceImpl implements BiddService {
 	@Override
 	public void readInsert(HashMap<String, String> bid_id) throws Exception {
 		// TODO Auto-generated method stub
-		dao.readInsert(bid_id);
-
-		
+		dao.readInsert(bid_id);	
 	}
 
 	@Override
@@ -74,6 +73,7 @@ public class BidServiceImpl implements BiddService {
 		dao.update(bid_id);
 		
 		/*Integer bno = bid_id.getBid_id();
+
 		
 		dao.deleteAttach(bno);
 		
@@ -98,5 +98,28 @@ public class BidServiceImpl implements BiddService {
 		return dao.read2(sort);
 	}
 
-	
+	@Override
+	public List<BidProductVO> read() throws Exception {
+		
+		return dao.read();
+	}
+
+	@Override
+	public List<String> getAttach(Integer bid_id) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.getAttach(bid_id);
+	}
+
+	@Override
+	public BidProductVO readDetail(Integer bid_id) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.readDetail(bid_id);
+	}
+
+	@Override
+	public void readInsert(BidProductVO bid_id) throws Exception {
+		// TODO Auto-generated method stub
+		dao.readInsert(bid_id);		
+	}
+
 }

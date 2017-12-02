@@ -12,7 +12,7 @@ import all.about.apartment.bid.domain.BidProductVO;
 import all.about.apartment.bid.domain.FileVO;
 
 @Repository
-public class BiddDAOImpl implements BiddDAO {
+public class BidderDAOImpl implements BidderDAO {
 
 	@Inject
 	private SqlSession session;
@@ -23,10 +23,4 @@ public class BiddDAOImpl implements BiddDAO {
 	public BidProductVO bidDetail(String bid_id) throws Exception {
 		return session.selectOne(namespace + ".bidDetail", bid_id);
 	}
-	
-	
-	
-
-
-
 }
